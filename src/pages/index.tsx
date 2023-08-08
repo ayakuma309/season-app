@@ -1,12 +1,13 @@
+import Layout from "@/components/common/Layout";
 import Link from "next/link";
 import React from "react";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <Layout>
             <Link href="/pixel">
                 Pixel
             </Link>
-        </main>
+        </Layout>
     );
 }

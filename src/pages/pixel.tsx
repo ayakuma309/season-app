@@ -1,8 +1,11 @@
+import Layout from '@/components/common/Layout'
 import React from 'react'
 
 const pixel = () => {
   return (
-    <div>pixel</div>
+    <Layout>
+      pixel
+    </Layout>
   )
 }
 
