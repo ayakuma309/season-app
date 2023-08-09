@@ -121,24 +121,31 @@ const Pixel = () => {
                 <h1 className="text-2xl font-bold mb-5">
                     たまごっちになれるアプリ
                 </h1>
+                <p className="my-2">アバターメーカーで作成した画像を使うとうまくいくかもしれません</p>
+                <a
+                    href="https://kuma-avatar.vercel.app/"
+                    className="bg-red-500 text-white rounded-md p-2 mb-5"
+                    target="_blank" rel="noopener noreferrer">
+                    ①アバターメーカーはこちら
+                </a>
                 <input
-                    className="bg-white border-2 border-blue-500 rounded-md p-3"
+                    className="bg-white border-2 border-red-500 rounded-md p-3"
                     type="file"
                     accept="image/*"
                     onChange={handleImageUpload}
                 />
                 <button
-                    className="px-2 py-1 bg-blue-500 text-white rounded-md mb-5 mt-3"
+                    className="px-2 py-1 bg-red-500 text-white rounded-md mb-5 mt-3"
                     onClick={handlePixelize}
                 >
-                    ピクセル化
+                    ②ピクセル化
                 </button>
             </div>
             <div
                 className="w-96 mx-auto relative"
                 style={{ position: "relative" }}
             >
-                <div id="egg-image">
+                <div id="egg-image" className="bg-white rounded-lg shadow-lg">
                     <img src="/tamago.svg" alt="Original" />
                     <button
                         onClick={() => setGohanToggle(!gohanToggle)}
@@ -284,10 +291,10 @@ const Pixel = () => {
                 </div>
                 <div className="flex justify-center items-center">
                     <button
-                        className="px-2 py-1 bg-blue-500 text-white rounded-md mb-5 mt-3"
+                        className="px-2 py-1 bg-red-500 text-white rounded-md mb-5 mt-3"
                         onClick={onClickSaveImage}
                     >
-                        画像を保存する
+                        ③画像を保存する
                     </button>
                 </div>
             </div>
