@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-egg{
+  height: 100vh;
+  background-color: #fbf9f9;
+}

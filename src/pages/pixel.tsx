@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import html2canvas from 'html2canvas';
 
 const Pixel = () => {
   const [image, setImage] = useState<File | undefined>(undefined);
   const [pixelizedImage, setPixelizedImage] = useState<string | null>(null);
-
+  const [saveImage, setSaveImage] = useState<string | null>(null);
+  const [poopToggle, setPoopToggle] = useState<boolean>(false);
+  const [gohanToggle, setGohanToggle] = useState<boolean>(false);
+  const [luckyGodsToggle, setLuckyGodsToggle] = useState<boolean>(false);
   // handleImageUpload 関数内でのファイル存在確認
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedImage = e.target.files?.[0];
@@ -72,17 +76,105 @@ const Pixel = () => {
     return { r: avgR, g: avgG, b: avgB };
   };
 
-  return (
-    <div>
-      <h1>画像ピクセル化アプリ</h1>
-      <input type="file" accept="image/*" onChange={handleImageUpload} />
-      <button onClick={handlePixelize}>ピクセル化</button>
-      <div className="w-96 mx-auto" style={{ position: 'relative' }}>
-        <img src='/tamago.png'  alt="Original" />
-        <button className='bg-white px-1 z-50 rounded-full' style={{ position: 'absolute', bottom: 103, left: 135 }} >色</button>
-        {pixelizedImage && <img src={pixelizedImage} alt="Pixelized" style={{ position: 'absolute', top: 100, left: 130 }} className="w-36"/>}
-      </div>
+  const saveAsImage = (uri: string) => {
+    const downloadLink = document.createElement("a");
 
+    if(typeof downloadLink.download === "string"){
+      downloadLink.href = uri;
+
+      // ファイル名
+      downloadLink.download = "avatar.png";
+       // Firefox では body の中にダウンロードリンクがないといけないので一時的に追加
+      document.body.appendChild(downloadLink);
+      // ダウンロードリンクが設定された a タグをクリック
+      downloadLink.click();
+      // Firefox 対策で追加したリンクを削除しておく
+      document.body.removeChild(downloadLink);
+    } else {
+      window.open(uri);
+    }
+  }
+
+  const onClickSaveImage = () => {
+    // 画像に変換する component の id を指定
+    const target = document.getElementById("egg-image");
+    if (target === null) return;
+    html2canvas(target).then(canvas => {
+      const targetImgUri = canvas.toDataURL("img/png");
+      console.log(targetImgUri);
+      setSaveImage(targetImgUri);
+    }).then(() => {
+      if (saveImage) {
+        saveAsImage(saveImage);
+      }
+    });
+  }
+
+
+  return (
+    <div className='bg-egg'>
+      <div className="flex  flex-col justify-center items-center p-3">
+        <h1 className='text-2xl font-bold mb-5'>たまごっちになれるアプリ</h1>
+        <input
+          className='bg-white border-2 border-blue-500 rounded-md p-3'
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload} />
+        <button
+          className='px-2 py-1 bg-blue-500 text-white rounded-md mb-5 mt-3'
+          onClick={handlePixelize}
+        >
+          ピクセル化
+        </button>
+      </div>
+      <div className="w-96 mx-auto relative" style={{ position: 'relative' }}>
+        <div id='egg-image'>
+          <img src='/tamago.svg'  alt="Original"/>
+          <button
+            onClick={() => setGohanToggle(!gohanToggle)}
+            className='bg-white px-1 z-50 rounded-full'
+            style={{ position: 'absolute', bottom: 170, right: 115 }} >
+              🍚
+          </button>
+          <button
+            onClick={() => setLuckyGodsToggle(!luckyGodsToggle)}
+            className='bg-white px-1 z-50 rounded-full'
+            style={{ position: 'absolute', bottom: 158, right: 170 }} >
+              ⛩
+          </button>
+          <button
+            onClick={() => setPoopToggle(!poopToggle)}
+            className='bg-white px-1 z-50 rounded-full'
+            style={{ position: 'absolute', bottom: 170, left: 135 }} >
+              💩
+          </button>
+          {pixelizedImage && (
+            <>
+              <img src={pixelizedImage} alt="Pixelized" style={{ position: 'absolute', top: 100, left: 130 }} className="w-36"/>
+              {gohanToggle && <img src="./gohan.png" alt="gohan" style={{ position: 'absolute', bottom: 230, right: 175 }} className="w-6"/> }
+              {luckyGodsToggle &&(
+                <>
+                  <img src="./benten.png" alt="lucky-gods" style={{ position: 'absolute', bottom: 300, right: 230 }} className="w-6"/>
+                  <img src="./daikoku.png" alt="lucky-gods" style={{ position: 'absolute', bottom: 320, right: 210 }} className="w-6"/>
+                  <img src="./ebisu.png" alt="lucky-gods" style={{ position: 'absolute', bottom: 330, right: 190 }} className="w-6"/>
+                  <img src="./bisya.png" alt="lucky-gods" style={{ position: 'absolute', bottom: 325, right: 165 }} className="w-6"/>
+                  <img src="./fukurokuju.png" alt="lucky-gods" style={{ position: 'absolute', bottom: 325, right: 140 }} className="w-6"/>
+                  <img src="./jyurou.png" alt="lucky-gods" style={{ position: 'absolute', bottom: 310, right: 120 }} className="w-6"/>
+                  <img src="./hotei.png" alt="lucky-gods" style={{ position: 'absolute', bottom: 290, right: 110 }} className="w-6"/>
+                </>
+              )}
+              {poopToggle && <img src="./poop.png" alt="poop" style={{ position: 'absolute', bottom: 230, right: 130 }} className="w-6"/> }
+            </>
+          )}
+        </div>
+        <div className="flex justify-center items-center">
+          <button
+            className="px-2 py-1 bg-blue-500 text-white rounded-md mb-5 mt-3"
+            onClick={onClickSaveImage}>
+            画像を保存する
+          </button>
+        </div>
+    </div>
     </div>
   );
 };
