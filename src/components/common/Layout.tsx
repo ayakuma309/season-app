@@ -2,9 +2,7 @@ import React from "react";
 import Header from "./Header";
 import { CommonTypeProps } from "@/types/Type";
 
-const Layout: React.FC<CommonTypeProps> = ({
-    children,
-}) => {
+const Layout: React.FC<CommonTypeProps> = ({ children }) => {
     return (
         <div className="min-h-screen items-center justify-center font-mono">
             <Header />

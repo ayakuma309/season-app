@@ -5,12 +5,8 @@ import React from "react";
 export default function Home() {
     return (
         <Layout>
-            <Link href="/pixel">
-                Pixel
-            </Link>
-            <Link href="/gradation">
-                Gradation
-            </Link>
+            <Link href="/pixel">Pixel</Link>
+            <Link href="/gradation">Gradation</Link>
         </Layout>
     );
 }
