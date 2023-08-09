@@ -17,7 +17,7 @@ const Pixel = () => {
       img.src = URL.createObjectURL(image);
 
       img.onload = () => {
-        const pixelSize = 5; // ピクセルの大きさを小さく設定
+        const pixelSize = 7; // ピクセルの大きさを小さく設定
         const pixelizedWidth = img.width / pixelSize;
         const pixelizedHeight = img.height / pixelSize;
 
