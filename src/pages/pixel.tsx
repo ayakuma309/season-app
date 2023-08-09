@@ -34,7 +34,7 @@ const Pixel = () => {
           outputCanvas.width = img.width;
           outputCanvas.height = img.height;
           const outputCtx = outputCanvas.getContext('2d');
-          
+
           if (outputCtx) {
             for (let y = 0; y < img.height; y += pixelSize) {
               for (let x = 0; x < img.width; x += pixelSize) {
@@ -77,12 +77,12 @@ const Pixel = () => {
       <h1>画像ピクセル化アプリ</h1>
       <input type="file" accept="image/*" onChange={handleImageUpload} />
       <button onClick={handlePixelize}>ピクセル化</button>
-      {pixelizedImage && (
-        <div>
-          <h2>ピクセル化された画像</h2>
-          <img src={pixelizedImage} alt="Pixelized" />
-        </div>
-      )}
+      <div className="w-96 mx-auto" style={{ position: 'relative' }}>
+        <img src='/tamago.png'  alt="Original" />
+        <button className='bg-white px-1 z-50 rounded-full' style={{ position: 'absolute', bottom: 103, left: 135 }} >色</button>
+        {pixelizedImage && <img src={pixelizedImage} alt="Pixelized" style={{ position: 'absolute', top: 100, left: 130 }} className="w-36"/>}
+      </div>
+
     </div>
   );
 };
