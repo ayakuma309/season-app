@@ -1,0 +1,58 @@
+.code {
+  display: block;
+  width: 100%;
+  background: #080808;
+  color: #ffffff;
+  margin: 30px 0;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 0.8em;
+}
+.gradation {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bar {
+  display: inline-block;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid #fff;
+  background: #fff;
+  opacity: 0.6;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.color_picker {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+}
+
+.color_image{
+  width: 300px;
+  height: 300px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+/* メディアクエリ */
+@media screen and (max-width: 768px) {
+  .color_picker {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .color_image{
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+  }
+}

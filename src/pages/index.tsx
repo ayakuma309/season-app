@@ -8,6 +8,9 @@ export default function Home() {
             <Link href="/pixel">
                 Pixel
             </Link>
+            <Link href="/gradation">
+                Gradation
+            </Link>
         </Layout>
     );
 }
