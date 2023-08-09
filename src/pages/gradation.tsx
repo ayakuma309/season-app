@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import CopyToClipboard from "react-copy-to-clipboard";
 import { ColorResult, ChromePicker } from "react-color";
 import Draggable, { DraggableEvent, DraggableData } from "react-draggable";
 import Style from "@/styles/gradation.module.css";
@@ -8,8 +9,9 @@ const Gradation = () => {
   const [hexEnd, setHexEnd] = useState("#3b3ef2");
   const [midPoint, setMidPoint] = useState("50%");
   const [firstGradationWidth, setFirstGradationWidth] = useState<number>(0);
-
+  const [copied, setCopied] = useState(false);
   const gradation = "linear-gradient(to right," + hexStart + "," + midPoint + "," + hexEnd + ")";
+  const gradationCode = `background: linear-gradient(to right, ${hexStart}, ${midPoint}, ${hexEnd});`;
 
   const handleChangeStart = (color: ColorResult) => {
     setHexStart(color.hex);
@@ -106,7 +108,17 @@ const Gradation = () => {
           }}
         >
           <form>
-
+            <input
+              type="text"
+              value={gradationCode}
+              className="hidden"
+            />
+            <br />
+            <button
+              className="btn bg-white p-2 border rounded-lg shadow-sm hover:shadow-lg"
+            >
+                保存
+            </button>
           </form>
         </div>
         <div>
@@ -116,6 +128,21 @@ const Gradation = () => {
       <code className={Style.code}>
         background: linear-gradient(to right,{hexStart},{midPoint},{hexEnd})
       </code>
+      <div className="text-center">
+        <CopyToClipboard text={gradationCode} onCopy={() => setCopied(true)}>
+          <button
+            className={Style.code_button}
+            style={{
+              background: gradation,
+              display: "inline-block",
+            }}
+          >
+            コピー
+          </button>
+        </CopyToClipboard>
+        <br />
+        {copied ? ( <span>コピーしました！</span> ): (<span>今すぐコピーはこちらから</span>)}
+      </div>
     </div>
   )
 }
