@@ -146,7 +146,7 @@ const Pixel = () => {
                 style={{ position: "relative" }}
             >
                 <div id="egg-image" className="bg-white rounded-lg shadow-lg">
-                    <img src="/tamago.svg" alt="Original" />
+                    <img src="./pixel/tamago.svg" alt="Original" />
                     <button
                         onClick={() => setGohanToggle(!gohanToggle)}
                         className="bg-white px-1 z-50 rounded-full"
@@ -190,7 +190,7 @@ const Pixel = () => {
                             />
                             {gohanToggle && (
                                 <img
-                                    src="./gohan.png"
+                                    src="./pixel/gohan.png"
                                     alt="gohan"
                                     style={{
                                         position: "absolute",
@@ -203,7 +203,7 @@ const Pixel = () => {
                             {luckyGodsToggle && (
                                 <>
                                     <img
-                                        src="./benten.png"
+                                        src="./pixel/benten.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -213,7 +213,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./daikoku.png"
+                                        src="./pixel/daikoku.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -223,7 +223,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./ebisu.png"
+                                        src="./pixel/ebisu.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -233,7 +233,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./bisya.png"
+                                        src="./pixel/bisya.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -243,7 +243,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./fukurokuju.png"
+                                        src="./pixel/fukurokuju.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -253,7 +253,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./jyurou.png"
+                                        src="./pixel/jyurou.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -263,7 +263,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./hotei.png"
+                                        src="./pixel/hotei.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -276,7 +276,7 @@ const Pixel = () => {
                             )}
                             {poopToggle && (
                                 <img
-                                    src="./poop.png"
+                                    src="./pixel/poop.png"
                                     alt="poop"
                                     style={{
                                         position: "absolute",
