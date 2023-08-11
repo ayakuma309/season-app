@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import html2canvas from "html2canvas";
+import Link from "next/link";
 
 const Pixel = () => {
     const [image, setImage] = useState<File | undefined>(undefined);
@@ -116,19 +117,21 @@ const Pixel = () => {
     };
 
     return (
-        <div className="bg-egg">
+        <div className="bg_egg">
             <div className="flex  flex-col justify-center items-center p-3">
-                <h1 className="text-2xl font-bold mb-5">
-                    たまごっちになれるアプリ
-                </h1>
+                <Link href="/">
+                    <h1 className="text-2xl font-bold mb-5">
+                        たまごっちになれるアプリ
+                    </h1>
+                </Link>
                 <input
-                    className="bg-white border-2 border-blue-500 rounded-md p-3"
+                    className="bg-white border-2 border-red-500 rounded-md p-3"
                     type="file"
                     accept="image/*"
                     onChange={handleImageUpload}
                 />
                 <button
-                    className="px-2 py-1 bg-blue-500 text-white rounded-md mb-5 mt-3"
+                    className="px-2 py-1 bg-red-500 text-white rounded-md mb-5 mt-3"
                     onClick={handlePixelize}
                 >
                     ピクセル化
@@ -138,8 +141,8 @@ const Pixel = () => {
                 className="w-96 mx-auto relative"
                 style={{ position: "relative" }}
             >
-                <div id="egg-image">
-                    <img src="/tamago.svg" alt="Original" />
+                <div id="egg-image" className="bg-white rounded-lg shadow-lg">
+                    <img src="./pixel/tamago.svg" alt="Original" />
                     <button
                         onClick={() => setGohanToggle(!gohanToggle)}
                         className="bg-white px-1 z-50 rounded-full"
@@ -183,7 +186,7 @@ const Pixel = () => {
                             />
                             {gohanToggle && (
                                 <img
-                                    src="./gohan.png"
+                                    src="./pixel/gohan.png"
                                     alt="gohan"
                                     style={{
                                         position: "absolute",
@@ -196,7 +199,7 @@ const Pixel = () => {
                             {luckyGodsToggle && (
                                 <>
                                     <img
-                                        src="./benten.png"
+                                        src="./pixel/benten.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -206,7 +209,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./daikoku.png"
+                                        src="./pixel/daikoku.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -216,7 +219,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./ebisu.png"
+                                        src="./pixel/ebisu.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -226,7 +229,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./bisya.png"
+                                        src="./pixel/bisya.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -236,7 +239,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./fukurokuju.png"
+                                        src="./pixel/fukurokuju.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -246,7 +249,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./jyurou.png"
+                                        src="./pixel/jyurou.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -256,7 +259,7 @@ const Pixel = () => {
                                         className="w-6"
                                     />
                                     <img
-                                        src="./hotei.png"
+                                        src="./pixel/hotei.png"
                                         alt="lucky-gods"
                                         style={{
                                             position: "absolute",
@@ -269,7 +272,7 @@ const Pixel = () => {
                             )}
                             {poopToggle && (
                                 <img
-                                    src="./poop.png"
+                                    src="./pixel/poop.png"
                                     alt="poop"
                                     style={{
                                         position: "absolute",
@@ -284,7 +287,7 @@ const Pixel = () => {
                 </div>
                 <div className="flex justify-center items-center">
                     <button
-                        className="px-2 py-1 bg-blue-500 text-white rounded-md mb-5 mt-3"
+                        className="px-2 py-1 bg-red-500 text-white rounded-md mb-5 mt-3"
                         onClick={onClickSaveImage}
                     >
                         画像を保存する

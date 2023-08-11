@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { ColorResult, ChromePicker } from "react-color";
+import { ColorResult, SketchPicker } from "react-color";
 import Draggable, { DraggableEvent, DraggableData } from "react-draggable";
 import Style from "@/styles/gradation.module.css";
+import Layout from "@/components/common/Layout";
 
 const Gradation = () => {
     const [hexStart, setHexStart] = useState("#93fd85");
@@ -81,7 +82,7 @@ const Gradation = () => {
     };
 
     return (
-        <div>
+        <Layout>
             <div
                 ref={gradationWidth}
                 onClick={gradationClick}
@@ -110,60 +111,48 @@ const Gradation = () => {
             </div>
             <div className={Style.color_picker}>
                 <div>
-                    <ChromePicker
+                    <p className="text-2xl my-3">①1色めを選ぶ</p>
+                    <SketchPicker
                         color={hexStart}
                         onChange={handleChangeStart}
                     />
                 </div>
+                <div>
+                    <p className="text-2xl my-3">②2色めを選ぶ</p>
+                    <SketchPicker color={hexEnd} onChange={handleChangeEnd} />
+                </div>
+            </div>
+            <div>
+                <p className="text-2xl my-3">③コピーする</p>
                 <div
                     className={Style.color_image}
                     style={{
                         background: gradation,
                     }}
-                >
-                    <form>
-                        <input
-                            type="text"
-                            value={gradationCode}
-                            className="hidden"
-                        />
-                        <br />
-                        <button className="btn bg-white p-2 border rounded-lg shadow-sm hover:shadow-lg">
-                            保存
-                        </button>
-                    </form>
-                </div>
-                <div>
-                    <ChromePicker color={hexEnd} onChange={handleChangeEnd} />
-                </div>
-            </div>
-            <code className={Style.code}>
-                background: linear-gradient(to right,{hexStart},{midPoint},
-                {hexEnd})
-            </code>
-            <div className="text-center">
-                <CopyToClipboard
-                    text={gradationCode}
-                    onCopy={() => setCopied(true)}
-                >
-                    <button
-                        className={Style.code_button}
-                        style={{
-                            background: gradation,
-                            display: "inline-block",
-                        }}
+                />
+                <code className={Style.code}>
+                    background: linear-gradient(to right,{hexStart},{midPoint},
+                    {hexEnd})
+                </code>
+                <div className="text-center">
+                    <CopyToClipboard
+                        text={gradationCode}
+                        onCopy={() => setCopied(true)}
                     >
-                        コピー
-                    </button>
-                </CopyToClipboard>
-                <br />
-                {copied ? (
-                    <span>コピーしました！</span>
-                ) : (
-                    <span>今すぐコピーはこちらから</span>
-                )}
+                        <button
+                            className={Style.code_button}
+                            style={{
+                                background: gradation,
+                            }}
+                        >
+                            コピー
+                        </button>
+                    </CopyToClipboard>
+                    <br />
+                    {copied && <span>コピーしました！</span>}
+                </div>
             </div>
-        </div>
+        </Layout>
     );
 };
 

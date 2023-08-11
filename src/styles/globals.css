@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-egg {
-    height: 100vh;
-    background-color: #fbf9f9;
+.bg_egg {
+    min-height: 100vh;
+    background-color: #f5aeae;
+}
+
+.bg_diagnosis {
+    min-height: 100vh;
+    background-color: #e4f5ae;
 }
