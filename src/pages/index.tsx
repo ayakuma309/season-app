@@ -7,6 +7,7 @@ export default function Home() {
         <Layout>
             <Link href="/pixel">Pixel</Link>
             <Link href="/gradation">Gradation</Link>
+            <Link href="/diagnosis">Diagnosis</Link>
         </Layout>
     );
 }
