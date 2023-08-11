@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
-import { ColorResult, SketchPicker  } from "react-color";
+import { ColorResult, SketchPicker } from "react-color";
 import Draggable, { DraggableEvent, DraggableData } from "react-draggable";
 import Style from "@/styles/gradation.module.css";
 import Layout from "@/components/common/Layout";
@@ -112,11 +112,14 @@ const Gradation = () => {
             <div className={Style.color_picker}>
                 <div>
                     <p className="text-2xl my-3">①1色めを選ぶ</p>
-                    <SketchPicker color={hexStart} onChange={handleChangeStart} />
+                    <SketchPicker
+                        color={hexStart}
+                        onChange={handleChangeStart}
+                    />
                 </div>
                 <div>
                     <p className="text-2xl my-3">②2色めを選ぶ</p>
-                    <SketchPicker  color={hexEnd} onChange={handleChangeEnd} />
+                    <SketchPicker color={hexEnd} onChange={handleChangeEnd} />
                 </div>
             </div>
             <div>

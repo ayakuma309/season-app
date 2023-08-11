@@ -68,7 +68,7 @@
         height: 200px;
         margin-bottom: 30px;
     }
-    .code{
+    .code {
         flex-direction: column;
     }
 }
