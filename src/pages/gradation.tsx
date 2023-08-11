@@ -109,10 +109,29 @@ const Gradation = () => {
                     ></div>
                 </Draggable>
             </div>
-            <code className={Style.code}>
-                background: linear-gradient(to right,{hexStart},{midPoint},
-                {hexEnd})
+            <div className={Style.color_picker}>
                 <div>
+                    <p className="text-2xl my-3">①1色めを選ぶ</p>
+                    <SketchPicker color={hexStart} onChange={handleChangeStart} />
+                </div>
+                <div>
+                    <p className="text-2xl my-3">②2色めを選ぶ</p>
+                    <SketchPicker  color={hexEnd} onChange={handleChangeEnd} />
+                </div>
+            </div>
+            <div>
+                <p className="text-2xl my-3">③コピーする</p>
+                <div
+                    className={Style.color_image}
+                    style={{
+                        background: gradation,
+                    }}
+                />
+                <code className={Style.code}>
+                    background: linear-gradient(to right,{hexStart},{midPoint},
+                    {hexEnd})
+                </code>
+                <div className="text-center">
                     <CopyToClipboard
                         text={gradationCode}
                         onCopy={() => setCopied(true)}
@@ -128,37 +147,6 @@ const Gradation = () => {
                     </CopyToClipboard>
                     <br />
                     {copied && <span>コピーしました！</span>}
-                </div>
-            </code>
-            <div className={Style.color_picker}>
-                <div>
-                    <p className="text-2xl my-3">①1色めを選ぶ</p>
-                    <SketchPicker color={hexStart} onChange={handleChangeStart} />
-                </div>
-                <div>
-                    <p className="text-2xl my-3">②2色めを選ぶ</p>
-                    <SketchPicker  color={hexEnd} onChange={handleChangeEnd} />
-                </div>
-                <div>
-                    <p className="text-2xl my-3">③保存する</p>
-                    <div
-                        className={Style.color_image}
-                        style={{
-                            background: gradation,
-                        }}
-                    >
-                        <form>
-                            <input
-                                type="text"
-                                value={gradationCode}
-                                className="hidden"
-                            />
-                            <br />
-                            <button className="btn bg-white p-2 border rounded-lg shadow-sm hover:shadow-lg">
-                                保存
-                            </button>
-                        </form>
-                    </div>
                 </div>
             </div>
         </Layout>
