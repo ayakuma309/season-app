@@ -124,13 +124,6 @@ const Pixel = () => {
                         たまごっちになれるアプリ
                     </h1>
                 </Link>
-                <p className="my-2">アバターメーカーで作成した画像を使うとうまくいくかもしれません</p>
-                <a
-                    href="https://kuma-avatar.vercel.app/"
-                    className="bg-red-500 text-white rounded-md p-2 mb-5"
-                    target="_blank" rel="noopener noreferrer">
-                    ①アバターメーカーはこちら
-                </a>
                 <input
                     className="bg-white border-2 border-red-500 rounded-md p-3"
                     type="file"
@@ -141,7 +134,7 @@ const Pixel = () => {
                     className="px-2 py-1 bg-red-500 text-white rounded-md mb-5 mt-3"
                     onClick={handlePixelize}
                 >
-                    ②ピクセル化
+                    ピクセル化
                 </button>
             </div>
             <div
@@ -297,7 +290,7 @@ const Pixel = () => {
                         className="px-2 py-1 bg-red-500 text-white rounded-md mb-5 mt-3"
                         onClick={onClickSaveImage}
                     >
-                        ③画像を保存する
+                        画像を保存する
                     </button>
                 </div>
             </div>
