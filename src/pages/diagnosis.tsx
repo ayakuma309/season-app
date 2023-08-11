@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Layout from '@/components/common/Layout';
 import SelectAnswer from '@/components/diagnosis/SelectAnswer';
 import { Button, Grid } from '@mui/material';
 import { useAnswerContext } from '@/context/AnswerProvider';
@@ -30,7 +29,7 @@ const QuestionPage = () => {
   } = useAnswerContext();
 
   return (
-    <Layout>
+    <div className="bg_diagnosis p-24">
       <Grid>
         <p>そうだと思ったら5</p>
         <SelectAnswer
@@ -88,8 +87,11 @@ const QuestionPage = () => {
             診断結果へ
           </Button>
         </Link>
+        <Link href="/">
+          <p className='p-3 w-20 text-center bg-white rounded-md my-3'>戻る</p>
+        </Link>
       </Grid>
-    </Layout>
+    </div>
   );
 };
 export default QuestionPage;

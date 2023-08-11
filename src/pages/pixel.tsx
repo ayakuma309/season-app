@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import html2canvas from "html2canvas";
+import Link from "next/link";
 
 const Pixel = () => {
     const [image, setImage] = useState<File | undefined>(undefined);
@@ -116,11 +117,13 @@ const Pixel = () => {
     };
 
     return (
-        <div className="bg-egg">
+        <div className="bg_egg">
             <div className="flex  flex-col justify-center items-center p-3">
-                <h1 className="text-2xl font-bold mb-5">
-                    たまごっちになれるアプリ
-                </h1>
+                <Link href="/">
+                    <h1 className="text-2xl font-bold mb-5">
+                        たまごっちになれるアプリ
+                    </h1>
+                </Link>
                 <p className="my-2">アバターメーカーで作成した画像を使うとうまくいくかもしれません</p>
                 <a
                     href="https://kuma-avatar.vercel.app/"

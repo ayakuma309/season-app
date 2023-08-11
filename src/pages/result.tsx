@@ -1,9 +1,9 @@
 import React from 'react';
 import { getCharacterType } from '@/types/diagnosis';
-import Layout from '@/components/common/Layout';
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import Image from 'next/image';
 import { useAnswerContext } from '@/context/AnswerProvider';
+import Link from 'next/link';
 
 const ResultPage = () => {
   const {
@@ -33,10 +33,9 @@ const ResultPage = () => {
   const matchingCharacterType = getCharacterType(userAnswers);
 
   return (
-    <Layout>
-      <Box>
-        <div>あなたの診断結果</div>
-        <div>
+    <div className="bg_diagnosis">
+      <div className='p-10 shadow-lg w-1/2 mx-auto'>
+        <div className='text-3xl font-bold text-center my-2'>
           {matchingCharacterType.name}
         </div>
         <Image
@@ -44,6 +43,7 @@ const ResultPage = () => {
           src={matchingCharacterType.imagePath}
           alt={matchingCharacterType.name}
           objectFit="cover"
+          className='rounded-md mx-auto'
         />
         <Typography>
           {`${matchingCharacterType.name}は`}
@@ -51,8 +51,11 @@ const ResultPage = () => {
         <Typography>
           {matchingCharacterType.description}
         </Typography>
-      </Box>
-    </Layout>
+      </div>
+      <Link href="/">
+        <p className='mx-auto p-3 w-20 text-center bg-white rounded-md my-3'>戻る</p>
+      </Link>
+    </div>
   );
 };
 
